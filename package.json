@@ -1,0 +1,25 @@
+{
+  "name": "litchat",
+  "version": "1.0.0",
+  "description": "Realtime chat app with rooms!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js && npm run build:prod",
+    "dev": "nodemon server",
+    "build:css": "tailwind build -i public/tailwind.css -o public/styles.css",
+    "build:prod": "NODE_ENV=production npx tailwind build -i public/tailwind.css -o public/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.3.1",
+    "nodemon": "^2.0.12",
+    "tailwindcss": "^2.2.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^4.1.3"
+  }
+}

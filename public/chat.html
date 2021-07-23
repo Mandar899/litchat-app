@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Litchat | Room</title>
+    <link rel="icon" type="image/png" href="./assets/icon/tab.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div
+      class="
+        min-h-screen
+        flex
+        justify-center
+        items-center
+        white
+        px-6
+        py-7
+        bg-gradient-to-b
+        from-red-500
+        to-yellow-300
+      "
+    >
+      <div
+        class="
+          bg-gray-100
+          w-screen
+          h-primary
+          rounded-lg
+          overflow-hidden
+          shadow-sm
+        "
+      >
+        <div class="py-1 bg-white w-full flex items-center justify-between">
+          <h1 class="ml-5 font-fuggles font-bold text-gray-900 text-4xl">
+            Litchat
+          </h1>
+          <button
+            id="leave-btn"
+            class="
+              font-inter
+              text-sm
+              mr-5
+              rounded-full
+              px-4
+              py-1
+              bg-red-500
+              text-white text-bold
+            "
+          >
+            Leave Room
+          </button>
+        </div>
+        <div class="flex flex-col bg-gray-50 h-secondary">
+          <div class="flex flex-grow flex-col-2 overflow-hidden">
+            <div class="bg-red-50 w-1/5 overflow-y-scroll pt-5 pl-5 pr-5 pb-14">
+              <h3
+                class="
+                  mb-4
+                  font-inter font-bold
+                  text-gray-600
+                  bg-gray-200
+                  px-2
+                  py-2
+                  rounded-lg
+                  flex
+                  justify-left
+                  items-center
+                  space-x-1
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                  />
+                </svg>
+                <span>Room Name:</span>
+              </h3>
+              <h2
+                class="mb-5 px-3 py-2 font-inter font-semibold"
+                id="room-name"
+              ></h2>
+              <hr />
+              <h3
+                class="
+                  mb-4
+                  mt-2
+                  px-3
+                  py-2
+                  font-inter font-bold
+                  text-gray-600
+                  bg-gray-200
+                  flex
+                  justify-start
+                  items-center
+                  space-x-1
+                  rounded-lg
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                  /></svg
+                ><span>Users</span>
+              </h3>
+              <ul
+                class="p-2.5 font-inter font-semibold text-gray-800"
+                id="users"
+              ></ul>
+            </div>
+            <div
+              class="bg-[#f5fcff] w-4/5 overflow-y-scroll p-7"
+              id="chat-messages"
+            ></div>
+          </div>
+
+          <div class="bg-white py-3">
+            <form
+              id="chat-form"
+              class="flex items-center justify-center space-x-3 ml-3 mr-3"
+            >
+              <input
+                type="text"
+                id="msg"
+                placeholder="Enter your message...."
+                class="
+                  font-inter
+                  bg-gray-50
+                  border border-gray-200
+                  rounded-full
+                  w-4/5
+                  px-4
+                  py-1
+                  focus:outline-none
+                "
+                autocomplete="off"
+              />
+              <button
+                class="
+                  flex
+                  justify-center
+                  items-center
+                  space-x-1
+                  bg-blue-600
+                  rounded-full
+                  text-white
+                  px-3
+                  py-1
+                  tracking-normal
+                  font-inter font-semibold
+                  hover:bg-blue-500
+                "
+              >
+                <span>Send</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-send"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.8"
+                  stroke="#ffffff"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                  <path
+                    d="M21 3l-6.5 18a0.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a0.55 .55 0 0 1 0 -1l18 -6.5"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 px-4 w-full bg-red-100 opacity-60">
+        <div class="flex items-center justify-between">
+          <p class="font-fuggles font-semibold text-lg">Litchat</p>
+          <p class="font-inter font-semibold text-xs">
+            Made with 💖 by
+            <a href="https://github.com/Mandar899" class="underline">Mandar</a>
+          </p>
+        </div>
+      </div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+        integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+        crossorigin="anonymous"
+      ></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
