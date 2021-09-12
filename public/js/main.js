@@ -31,7 +31,6 @@ chatForm.addEventListener('submit', (e) => {
 
   //! Getting message from client
   const msg = e.target.elements.msg.value;
-  msg = msg.trim();
   if (!msg) {
     return false;
   }
@@ -48,7 +47,7 @@ chatForm.addEventListener('submit', (e) => {
 function outputMessage(message) {
   const div = document.createElement('div');
   div.classList.add('message');
-  div.innerHTML = ` <div class="bg-blue-100 opacity-80 p-2.5 mb-3.5 rounded-md break-words">
+  div.innerHTML = `<div style='margin-bottom: 12px' class="bg-primary mb-3 p-2.5  rounded-md break-words">
         <p class="text-sm font-semibold font-inter opacity-70 mb-2 text-gray-800">
           ${message.username} <span class="font-inter text-xs font-semibold text-gray-800">${message.time}</span>
         </p>
